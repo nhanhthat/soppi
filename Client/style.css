@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');s
+.main-container {
+    margin: 0 auto;
+    max-width: 800px;  
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+    overflow-x: hidden;
+  }
+
+  .header {
+    background-color: #EF6C00;  
+    color: white;
+    text-align: center;
+  }
+  .header .bg-cover {
+    height:220px;
+    background-image: url("https://cdn.tuoitre.vn/2022/7/14/5-16577783211941704268300.jpg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .main-container {
+    margin: 0 auto;
+    max-width: 800px;  
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+
+   
+  .btn-primary {
+    background-color: #eb582c;
+    border-color: #eb582c;
+  }
+
+   
+  .footer {
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 10px;
+  }
+  .custom-search {
+    position: relative;
+    width: 100%;
+  }
+  .custom-search-input {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 90px 10px 10px;
+    line-height: 1;
+    box-sizing: border-box;
+    outline: none;
+  }
+  .custom-search-botton {
+    position: absolute;
+    right: 20px;
+    top: 7px;
+    bottom: 7px;
+    border: 0;
+    background: #dc593b;
+    color: #fff;
+    outline: none;
+    margin: 0;
+    padding: 0 10px;
+    border-radius: 5px;
+    z-index: 2;
+  }
+
+  #modal-loading {
+    position: fixed;
+    border-radius: 5px;
+    overflow: hidden;
+    top: -500px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 300px;
+    width: 500px;
+    background-color: white;
+    z-index: 1;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  #over-lay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: none;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.405);
+  }
