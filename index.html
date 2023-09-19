@@ -204,29 +204,45 @@
         overlay.style.display = 'block'
         loading.style.top = '2%'
 
-        // Tạo một deferred object từ yêu cầu AJAX
-        fetch("https://soppi-server.vercel.app/api/live_x", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            content: content,
-          }),
-        })
+        let haha = setInterval(() => {
+          fetch("https://soppi-server.vercel.app/get-links", {
+                  method: "GET",
+                  headers: {
+                    "Content-Type": "application/json",
+                  }
+                })
           .then((response) => response.json())
-          .then((data) => {
-            overlay.style.display = 'none'
-            loading.style.top = '-500px'
-            if (data.message === "success") {
-              $('#myModal').modal('show');
-            } else {
-              alert("Có lỗi xảy ra trong quá trình xử lý");
+          .then(data => {
+            console.log(data)
+            if (data.status == 200) {
+              if (data.links.length == 0) {
+                fetch("https://soppi-server.vercel.app/api/live_x", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    content: content,
+                  }),
+                })
+                  .then((response) => response.json())
+                  .then((data) => {
+                    overlay.style.display = 'none'
+                    loading.style.top = '-500px'
+                    if (data.message === "success") {
+                      $('#myModal').modal('show');
+                    } else {
+                      alert("Có lỗi xảy ra trong quá trình xử lý");
+                    }
+                  })
+                  .catch((error) => {
+                    alert("Có lỗi xảy ra trong quá trình xử lý. Vui lòng thử lại!");
+                  });
+                clearInterval(haha)
+              }
             }
           })
-          .catch((error) => {
-            alert("Có lỗi xảy ra trong quá trình xử lý. Vui lòng thử lại!");
-          });
+        }, 2500)
       } else {
         alert("Đây không phải là đường dẫn của Shopee.");
       }
@@ -237,3 +253,4 @@
     })
   })
 </script>
+
