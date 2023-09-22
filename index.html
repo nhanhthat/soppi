@@ -164,9 +164,9 @@
     </div>
   </div>
  <div id="modal-loading">
-    <img src="./loading-thinking.gif" width="200px" />
+    <img src="./cc.gif" width="200px" />
     <h5 style="margin: 20px 0;">Sản phẩm đang được thêm vào giỏ hàng...</h5>
-    <h5 style="margin: 5px 0;">Hà Nội không vội được đâu... Chờ tí nhé</h5>
+    <h5 style="margin: 5px 0;">Hà Nội không vội được đâu...</h5>
 
  </div>
  <div id="over-lay"></div>
@@ -195,6 +195,43 @@
       }
     });
 
+    // $("#submitButton").click(function () {
+    //   var editor = document.getElementById('item_id');
+    //   var content = editor.value;
+    //   if (content.includes('https://shope.ee') || content.includes('https://shopee.vn')) {
+    //     var submitButton = document.getElementById("submitButton");
+    //     var overlay = document.getElementById('over-lay')
+    //     var loading = document.getElementById('modal-loading')
+    //     overlay.style.display = 'block'
+    //     loading.style.top = '2%'
+
+
+    //     fetch("http://localhost:3000/api/live_x", {
+    //       method: "POST",
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    //       body: JSON.stringify({
+    //         content: content,
+    //       }),
+    //     })
+    //       .then((response) => response.json())
+    //       .then((data) => {
+    //         overlay.style.display = 'none'
+    //         loading.style.top = '-500px'
+    //         if (data.message === "success") {
+    //           $('#myModal').modal('show');
+    //         } else {
+    //           alert("Có lỗi xảy ra trong quá trình xử lý");
+    //         }
+    //       })
+    //       .catch((error) => {
+    //         alert("Có lỗi xảy ra trong quá trình xử lý. Vui lòng thử lại!");
+    //       });
+    //   } else {
+    //     alert("Đây không phải là đường dẫn của Shopee.");
+    //   }
+
     $("#submitButton").click(function () {
       var editor = document.getElementById('item_id');
       var content = editor.value;
@@ -205,33 +242,39 @@
         overlay.style.display = 'block'
         loading.style.top = '2%'
 
-
-        fetch("https://soppi-server.vercel.app/api/live_x", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            content: content,
-          }),
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            overlay.style.display = 'none'
-            loading.style.top = '-500px'
-            if (data.message === "success") {
-              $('#myModal').modal('show');
-            } else {
-              alert("Có lỗi xảy ra trong quá trình xử lý");
-            }
+        setTimeout(function () {
+          fetch("soppi-server.vercel.app/api/live_x", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              content: content,
+            }),
           })
-          .catch((error) => {
-            alert("Có lỗi xảy ra trong quá trình xử lý. Vui lòng thử lại!");
-          });
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.message === "success") {
+                overlay.style.display = 'none'
+                loading.style.top = '-500px'
+                $('#myModal').modal('show');
+              } else {
+                overlay.style.display = 'none'
+                loading.style.top = '-500px'
+                alert("Có lỗi xảy ra trong quá trình xử lý");
+              }
+            })
+            .catch((error) => {
+              overlay.style.display = 'none'
+              loading.style.top = '-500px'
+              alert("Có lỗi xảy ra trong quá trình xử lý. Vui lòng thử lại!");
+            });
+        }, 6500);
       } else {
         alert("Đây không phải là đường dẫn của Shopee.");
       }
 
+      
 
       // Ngăn trình duyệt thực hiện hành động mặc định của sự kiện
       event.preventDefault();
