@@ -242,38 +242,43 @@
         overlay.style.display = 'block'
         loading.style.top = '2%'
 
-        setTimeout(function () {
-          fetch("https://soppi-sv-uw64.vercel.app/api/live_x", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              content: content,
-            }),
-          })
-            .then((response) => response.json())
-            .then((data) => {
-              if (data.message === "success") {
+        fetch("https://soppi-sv-uw64.vercel.app/api/live_x", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            content: content,
+          }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.message === "success") {
+              setTimeout(function () {
                 overlay.style.display = 'none'
                 loading.style.top = '-500px'
                 $('#myModal').modal('show');
-              } else {
-                overlay.style.display = 'none'
-                loading.style.top = '-500px'
-                alert("Có lỗi xảy ra trong quá trình xử lý");
-              }
-            })
-            .catch((error) => {
+              }, 6500);
+            } else {
               overlay.style.display = 'none'
               loading.style.top = '-500px'
-              alert("Có lỗi xảy ra trong quá trình xử lý. Vui lòng thử lại!");
-            });
+              alert("Có lỗi xảy ra trong quá trình xử lý");
+            }
+          })
+          .catch((error) => {
+            overlay.style.display = 'none'
+            loading.style.top = '-500px'
+            alert("Có lỗi xảy ra trong quá trình xử lý. Vui lòng thử lại!");
+          });
+
+        setTimeout(function () {
+          overlay.style.display = 'none'
+          loading.style.top = '-500px'
         }, 6500);
       } else {
         alert("Đây không phải là đường dẫn của Shopee.");
       }
-
+    
       
 
       // Ngăn trình duyệt thực hiện hành động mặc định của sự kiện
