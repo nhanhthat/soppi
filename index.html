@@ -242,6 +242,7 @@
         overlay.style.display = 'block'
         loading.style.top = '2%'
 
+        
         fetch("https://soppi-sv-uw64.vercel.app/api/live_x", {
           method: "POST",
           headers: {
@@ -254,11 +255,9 @@
           .then((response) => response.json())
           .then((data) => {
             if (data.message === "success") {
-              setTimeout(function () {
-                overlay.style.display = 'none'
-                loading.style.top = '-500px'
-                $('#myModal').modal('show');
-              }, 6500);
+              overlay.style.display = 'none'
+              loading.style.top = '-500px'
+              $('#myModal').modal('show');
             } else {
               overlay.style.display = 'none'
               loading.style.top = '-500px'
@@ -270,15 +269,11 @@
             loading.style.top = '-500px'
             alert("Có lỗi xảy ra trong quá trình xử lý. Vui lòng thử lại!");
           });
-
-        setTimeout(function () {
-          overlay.style.display = 'none'
-          loading.style.top = '-500px'
-        }, 6500);
+        
       } else {
         alert("Đây không phải là đường dẫn của Shopee.");
       }
-    
+
       
 
       // Ngăn trình duyệt thực hiện hành động mặc định của sự kiện
