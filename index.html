@@ -33,7 +33,7 @@
         <div class="main-container ">
           <div style="width:100%" class="header"><img style="width:100%"
                                        src="https://cdn.tuoitre.vn/2022/7/14/5-16577783211941704268300.jpg">
-            <h3 class="page-title bold">Thêm sản phẩm vào CUỐI GIỎ live</h3>
+            <h3 class="page-title bold">Thêm sản phẩm vào live cực nhanh</h3>
           </div>
           <div class="container" style="margin-bottom: 10px; margin-top: 10px">
             <div class="row justify-content-center">
@@ -44,17 +44,17 @@
                       <div class="col-lg">
                         
                         <input id="item_id" class="custom-search-input"
-                               placeholder="Nhập link sản phẩm: VD: 'https://shope.ee/....' " required="" type="text"
+                               placeholder="Nhập Link sản phẩm:" required="" type="text"
                                value="">
-                        <button id="past" class="custom-search-botton" type="submit">Dán link</button></div>
+                        <button id="past" class="custom-search-botton" type="submit">DÁN LINK</button></div>
                     </div>
                     <div class="row row-sm" style="padding-top: 10px">
                       <div class="col-lg">
-                        Lưu ý: sản phẩm bạn thêm sẽ ở khúc GẦN CUỐI giỏ live (Kéo xuống hết giỏ hàng rồi tìm dần lên nhé)<br/><br/>
+                        Lưu ý: Tìm sản phẩm theo ID của bạn (thường là ở cuối giỏ)  <br/><br/>
                       </div>
                     </div>
                     <div class="row row-sm">
-                      <button id="submitButton" class="btn btn-primary" style="width: auto; margin-left: auto; margin-right: auto; margin-bottom: 3%;">Thêm vào live</button>
+                      <button id="submitButton" class="btn btn-primary" style="width: auto; margin-left: auto; margin-right: auto; margin-bottom: 3%;">Thêm vào Live</button>
                     </div>
                     <div class="row row-sm">
                       <div class="col-lg mg-t-10">
@@ -105,17 +105,17 @@
                     </div>
                     <div class="row row-sm">
                       <div class="col-lg">
-                        <span class="bold">👉 Bước 3:</span> Bấm vào nút "Thêm vào live"
+                        <span class="bold">👉 Bước 3:</span> Bấm vào nút "Thêm vào Live"
                       </div>
                     </div>
                     <div class="row row-sm">
                       <div class="col-lg">
-                        <span class="bold">👉 Bước 4:</span> Màn hình sẽ hiện link live, bạn bấm vào đó để vào live
+                        <span class="bold">👉 Bước 4:</span> Màn hình sẽ hiện link Live, bạn bấm vào đó để vào Live
                       </div>
                     </div>
                     <div class="row row-sm">
                       <div class="col-lg">
-                        <span class="bold">👉 Bước 5:</span> Sản phẩm sẽ hiện ở <span> cuối </span>giỏ live. Bạn mua hàng để hưởng mã live và MPVC nhé  🎁
+                        <span class="bold">👉 Bước 5:</span> Sản phẩm sẽ hiện ở <span> cuối </span>giỏ live. Bạn mua hàng để hưởng mã Live và Freeship nhé  🎁
                       </div>
                     </div>
 
@@ -152,9 +152,9 @@
         </div>
         <div class="modal-body">
           <p>✅ Thêm sản phẩm thành công vào giỏ hàng trong LIVE </p>
-          <p>✅ SẢN PHẨM CỦA BẠN Ở CUỐI GIỎ HÀNG (BẠN KÉO GIỎ HÀNG XUỐNG CUỐI RỒI KÉO DẦN LÊN XÍU LÀ THẤY NHÉ)</p>
+          <p>✅ Sản phẩm có thể sẽ bị xoá khỏi giỏ hàng sau 1-2 phút, bạn tranh thủ chốt đơn nhé</p>
+          <p>✅ ID SẢN PHẨM CỦA BẠN: <span id="productId" class="orange-text bold-text"></span></p>
           <p>👉 Vô live mua ngay tại: <a href="https://shope.ee/8KNFymi9xo" target="_blank"><span style="color: blue; font-weight: bold;">https://shope.ee/8KNFymi9xo</span></a></p>
-          <p>✅ Sản phẩm có thể sẽ bị xoá khỏi giỏ hàng sau 2-3 phút, bạn tranh thủ chốt đơn nhé</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
@@ -165,8 +165,8 @@
   </div>
  <div id="modal-loading">
     <img src="./cc.gif" width="200px" />
-    <h5 style="margin: 20px 0;">Sản phẩm đang được thêm vào giỏ hàng...</h5>
-    <h5 style="margin: 5px 0;">Hà Nội không vội được đâu...</h5>
+    <h4 style="margin: 20px 0;">Sản phẩm đang được thêm vào giỏ hàng...</h5>
+    <h4 style="margin: 5px 0;">Hà Nội không vội được đâu...</h5>
 
  </div>
  <div id="over-lay"></div>
@@ -195,44 +195,7 @@
       }
     });
 
-    // $("#submitButton").click(function () {
-    //   var editor = document.getElementById('item_id');
-    //   var content = editor.value;
-    //   if (content.includes('https://shope.ee') || content.includes('https://shopee.vn')) {
-    //     var submitButton = document.getElementById("submitButton");
-    //     var overlay = document.getElementById('over-lay')
-    //     var loading = document.getElementById('modal-loading')
-    //     overlay.style.display = 'block'
-    //     loading.style.top = '2%'
-
-
-    //     fetch("http://localhost:3000/api/live_x", {
-    //       method: "POST",
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //       body: JSON.stringify({
-    //         content: content,
-    //       }),
-    //     })
-    //       .then((response) => response.json())
-    //       .then((data) => {
-    //         overlay.style.display = 'none'
-    //         loading.style.top = '-500px'
-    //         if (data.message === "success") {
-    //           $('#myModal').modal('show');
-    //         } else {
-    //           alert("Có lỗi xảy ra trong quá trình xử lý");
-    //         }
-    //       })
-    //       .catch((error) => {
-    //         alert("Có lỗi xảy ra trong quá trình xử lý. Vui lòng thử lại!");
-    //       });
-    //   } else {
-    //     alert("Đây không phải là đường dẫn của Shopee.");
-    //   }
-
-    $("#submitButton").click(function () {
+    $("#submitButton").click(function (event) {
       var editor = document.getElementById('item_id');
       var content = editor.value;
       if (content.includes('https://shope.ee') || content.includes('https://shopee.vn')) {
@@ -242,7 +205,6 @@
         overlay.style.display = 'block'
         loading.style.top = '2%'
 
-        
         fetch("https://soppi-sv-uw64.vercel.app/api/live_x", {
           method: "POST",
           headers: {
@@ -255,9 +217,13 @@
           .then((response) => response.json())
           .then((data) => {
             if (data.message === "success") {
-              overlay.style.display = 'none'
-              loading.style.top = '-500px'
-              $('#myModal').modal('show');
+              var productId = data.productIdCounter;
+              document.getElementById("productId").textContent = productId;
+              setTimeout(function() {
+                overlay.style.display = 'none'
+                loading.style.top = '-500px'
+                $('#myModal').modal('show');
+              }, 6500);
             } else {
               overlay.style.display = 'none'
               loading.style.top = '-500px'
@@ -274,11 +240,8 @@
         alert("Đây không phải là đường dẫn của Shopee.");
       }
 
-      
-
       // Ngăn trình duyệt thực hiện hành động mặc định của sự kiện
       event.preventDefault();
     })
   })
 </script>
-
