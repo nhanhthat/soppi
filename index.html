@@ -182,7 +182,7 @@
 
     <img src="./error.gif" width="200px" />
     <h6 style="margin: 20px 0;">Hệ thống đang bảo trì... 😔 </h6>
-    <h6 style="margin: 20px 0;">Bạn vui lòng quay lại sau 9h AM 06/10 nha 😔</h6>
+    <!-- <h6 style="margin: 20px 0;">Bạn vui lòng quay lại sau 9h AM 06/10 nha 😔</h6> -->
     <h6 style="margin: 20px 0;">Bạn Join telegram cập nhật mã giảm giá nha 😔</h6>
 
     
@@ -237,8 +237,8 @@
           .then((response) => response.json())
           .then((data) => {
             if (data.message === "success") {
-              var productId = data.productIdCounter;
-              document.getElementById("productId").textContent = productId;
+              // var productId = data.productIdCounter;
+              // document.getElementById("productId").textContent = productId;
               setTimeout(function() {
                 overlay.style.display = 'none'
                 loading.style.top = '-500px'
