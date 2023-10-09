@@ -14,8 +14,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
  
   <title>Săn Sale Sập Sàn</title>
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Expires" content="0">
+  
 
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -203,6 +202,12 @@
 
 
 <script type="text/javascript">
+  // Kiểm tra xem trang đã được tải hoàn thành hay chưa
+  document.addEventListener("DOMContentLoaded", function(event) {
+      // Yêu cầu trình duyệt reload lại trang web
+      location.reload();
+    });
+
   $(document).ready(function () {
     const btn = document.getElementById('past');
     if (!navigator.clipboard || !(typeof navigator.clipboard.readText === 'function')) {
