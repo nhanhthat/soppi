@@ -61,6 +61,7 @@
                       </div>
 
 
+
                       <div class="row row-sm">
                         <div class="col-lg">
 
@@ -81,6 +82,10 @@
                         <button id="submitButton" class="btn btn-primary"
                           style="width: auto; margin-left: auto; margin-right: auto; margin-bottom: 3%;">Thêm vào
                           Live</button>
+
+                        <button id="submitButtonVideo" class="btn btn-primary"
+                          style="width: auto; margin-left: auto; margin-right: auto; margin-bottom: 3%;">Thêm vào
+                          Video</button>
                       </div>
                       <div class="row row-sm">
                         <div class="col-lg mg-t-10">
@@ -264,6 +269,13 @@
             err => console.log(err)
           );
       }
+    });
+
+
+    var submitButtonVideo = document.getElementById("submitButtonVideo");
+    submitButtonVideo.addEventListener("click", function () {
+
+      window.location.href = "https://sansalesapsan.site";
     });
 
     var liveButton = document.getElementById('liveButton');
