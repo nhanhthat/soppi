@@ -92,7 +92,7 @@
 
 
 
-                      <!-- <div class="row row-sm">
+                      <div class="row row-sm">
                         <div class="col-lg">
 
                           <input id="item_id" class="custom-search-input" placeholder="Nhập Link sản phẩm:" required=""
@@ -131,15 +131,16 @@
                                 style="color: blue; font-weight: bold;">https://sansalesapsan.site</span></a></h6>
 
                         </div>
-                      </div> -->
-
-                      <!-- <div class="row row-sm">
-                      <div class="col-lg mg-t-10">
-                        <h6 class="page-title">👉 Zalo: <a href="https://zalo.me/g/gqtjpk136" target="_blank"><span style="color: blue; font-weight: bold;">Zalo</span></a></h6>
                       </div>
-                    </div> -->
 
-                      <!-- <div class="row row-sm">
+                      <div class="row row-sm">
+                        <div class="col-lg mg-t-10">
+                          <h6 class="page-title">👉 Zalo: <a href="https://zalo.me/g/gqtjpk136" target="_blank"><span
+                                style="color: blue; font-weight: bold;">Zalo</span></a></h6>
+                        </div>
+                      </div>
+
+                      <div class="row row-sm">
                         <div class="col-lg mg-t-10">
                           <h6 class="page-title">👉 Group facebook: <a
                               href="https://www.facebook.com/groups/sansaleshopeesapsan/?ref=share_group_link"
@@ -205,7 +206,7 @@
                           <span class="bold">👉 Bước 5:</span> Sản phẩm sẽ hiện ở <span> ĐẦU </span>giỏ live. Bạn thêm
                           vào giỏ hàng và mua để áp mã Live và Freeship nhé 🎁
                         </div>
-                      </div> -->
+                      </div>
 
 
 
@@ -235,10 +236,13 @@
             </div>
             <div class="modal-body">
 
-              <p>✅ Thêm sản phẩm thành công ở ĐẦU GIỎ LIVE (Tìm từ sản phẩm đầu tiên kéo dần xuống) </p>
-              <p>👉 Vào LIVE mua ngay tại: <a href="https://shope.ee/4fY6Eh9SxY" target="_blank"><span
-                    style="color: blue; font-weight: bold;">https://shope.ee/4fY6Eh9SxY</span></a></p>
-              <p>⚠️ Không thấy sản phẩm lên giỏ thì thử thêm vào giỏ lại sau 30 giây nhé mng</p>
+
+              <!-- <p id="timeLive">✅ Đặt lịch gắn tag live giỏ hàng thành công vào phiên LIVE lúc <span
+                  id="thoiGian"></span>
+              </p>
+              <p>👉 Link LIVE: <a href="https://shope.ee/4fY6Eh9SxY" target="_blank"><span
+                    style="color: blue; font-weight: bold;">https://shope.ee/4fY6Eh9SxY</span></a></p> -->
+              <!-- <p>⚠️ Không thấy sản phẩm lên giỏ thì thử thêm vào giỏ lại sau 30 giây nhé mng</p> -->
 
 
 
@@ -257,7 +261,7 @@
 
 
       <div id="modal-loading">
-        <!-- <img src="./Loading.gif" width="200px" /> -->
+        <img src="./Loading.gif" width="200px" />
         <h6 style="margin: 20px 0;">Sản phẩm đang được thêm vào giỏ hàng</h5>
           <h6 style="margin: 5px 0;">Hà Nội không vội được đâu...</h5>
 
@@ -275,6 +279,11 @@
 
 
 <script type="text/javascript">
+
+  const timeLive = '10H00 PM'
+
+  const thoiGianElement = document.getElementById('thoiGian');
+  thoiGianElement.textContent = timeLive;
 
 
   $(document).ready(function () {
@@ -302,13 +311,6 @@
       window.location.href = "https://sansalesapsan.site";
     });
 
-    var liveButton = document.getElementById('liveButton');
-
-
-    liveButton.addEventListener('click', function () {
-
-      window.location.href = 'https://shope.ee/4fY6Eh9SxY';
-    });
 
     $("#submitButton").click(function (event) {
       var editor = document.getElementById('item_id');
@@ -342,13 +344,13 @@
             } else {
               overlay.style.display = 'none'
               loading.style.top = '-500px'
-              alert("Có lỗi xảy ra trong quá trình xử lý. (Vào live check giỏ thử ạ)");
+              alert("Có lỗi xảy ra trong quá trình xử lý.");
             }
           })
           .catch((error) => {
             overlay.style.display = 'none'
             loading.style.top = '-500px'
-            alert("Có lỗi xảy ra trong quá trình xử lý. Vui lòng thử lại! (Vào live check giỏ thử ạ)");
+            alert("Có lỗi xảy ra trong quá trình xử lý. Vui lòng thử lại!");
           });
 
       } else {
