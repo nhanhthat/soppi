@@ -48,19 +48,30 @@
                       <div class="row row-sm" style="padding-top: 10px">
                         <div class="col-lg">
 
-                          <!-- <p>📅 Phiên LIVE tiếp theo mở lúc: <span id='thoiGian'></span></p> -->
-                          <p>🎉 Về lại nhà cũ thui mn ơi, cả nhà gửi link qua <a
+                          <p>⏰Các phiên live hôm nay (hàng ngày) - mỗi phiên chỉ bật 10 phút:
+                            <br>08H55
+                            <br>10H55
+                            <br>11H55
+                            <br>12H25
+                            <br>14H55
+                            <br>17H55
+                            <br>19H55
+                            <br>21H55
+                            <br>23H55
+                            <br>00H30
+                          </p>
+                          <!-- <p>🎉 Về lại nhà cũ thui mn ơi, cả nhà gửi link qua <a
                               href="https://m.me/gantaglivessss">Messenger</a> để đặt lịch nha</p>
                           <p>🟢 <a href="https://shope.ee/g3Lm2OkwS">Link vào LIVE</a> và STT sẽ được gửi qua inbox của
                             mn ngay khi em lên LIVE nha, không cần xài
-                            kính lúp nữa hihi</p>
+                            kính lúp nữa hihi</p> -->
 
-                          <p>👉 Gửi link đặt lịch gắn tag LIVE qua inbox Page: <a
+                          <!-- <p>👉 Gửi link đặt lịch gắn tag LIVE qua inbox Page: <a
                               href="https://www.facebook.com/gantaglivessss/"> Gắn Tag Live -
-                              Săn Sale Sập Sàn</a> </p>
+                              Săn Sale Sập Sàn</a> </p> -->
 
-                          <!-- <p>👉 Link vào LIVE: <a href="https://shope.ee/g3Lm2OkwS" target="_blank"><span
-                                style="color: blue; font-weight: bold;">https://shope.ee/g3Lm2OkwS</span></a></p> -->
+                          <p>👉 Link vào LIVE: <a href="https://shope.ee/2Asj8AgHwW" target="_blank"><span
+                                style="color: blue; font-weight: bold;">https://shope.ee/2Asj8AgHwW</span></a></p>
 
                           <!-- <p>⭐ Cả nhà đặt lịch xong chờ đến giờ, vào LIVE tìm sản phẩm bằng kính lúp trong giỏ
                             nhoé</p> -->
@@ -80,36 +91,36 @@
 
 
 
-                      <!-- <div class="row row-sm">
+                      <div class="row row-sm">
                         <div class="col-lg">
 
                           <input id="item_id" class="custom-search-input" placeholder="Nhập Link sản phẩm:" required=""
                             type="text" value="">
                           <button id="past" class="custom-search-botton" type="submit">DÁN LINK</button>
                         </div>
-                      </div> -->
+                      </div>
 
 
 
-                      <!-- <div class="row row-sm" style="padding-top: 10px">
+                      <div class="row row-sm" style="padding-top: 10px">
                         <div class="col-lg">
                           ⚠️ Lưu ý: sản phẩm của bạn sẽ được ở trong giỏ LIVE phiên tiếp theo<br><br>
                         </div>
-                      </div> -->
+                      </div>
 
-                      <!-- <div class="row row-sm">
+                      <div class="row row-sm">
                         <button id="submitButton" class="btn btn-primary"
-                          style="width: auto; margin-left: auto; margin-right: auto; margin-bottom: 3%;">Đặt lịch phiên
-                          LIVE</button>
+                          style="width: auto; margin-left: auto; margin-right: auto; margin-bottom: 3%;">Thêm vào phiên
+                          LIVE tiếp theo</button>
 
-                        <button id="submitButtonVideo" class="btn btn-primary"
+                        <!-- <button id="submitButtonVideo" class="btn btn-primary"
                           style="width: auto; margin-left: auto; margin-right: auto; margin-bottom: 3%;">Thêm vào
-                          Video</button>
-                      </div> -->
+                          Video</button> -->
+                      </div>
 
 
 
-                      <!-- <div class="row row-sm">
+                      <div class="row row-sm">
                         <div class="col-lg mg-t-10">
                           <h5 class="page-title" id="output">
                           </h5>
@@ -125,7 +136,7 @@
                           <img src="gio_live.jpg" alt="" style="width: 100%; height: 98%;">
 
                         </div>
-                      </div> -->
+                      </div>
 
 
                       <!-- <div class="row row-sm">
@@ -207,11 +218,12 @@
             <div class="modal-body">
 
 
-              <p id="timeLive">✅ Đặt lịch gắn tag live giỏ hàng thành công vào phiên LIVE lúc <span
-                  id="thoiGian2"></span>
+              <p id="timeLive">✅ Đặt lịch gắn tag live giỏ hàng thành công vào phiên LIVE lúc
+
+                <span></span>
               </p>
-              <p>👉 Link LIVE: <a href="https://shope.ee/g3Lm2OkwS" target="_blank"><span
-                    style="color: blue; font-weight: bold;">https://shope.ee/g3Lm2OkwS</span></a></p>
+              <p>👉 Link LIVE: <a href="https://shope.ee/2Asj8AgHwW" target="_blank"><span
+                    style="color: blue; font-weight: bold;">https://shope.ee/2Asj8AgHwW</span></a></p>
               <!-- <p>⚠️ Không thấy sản phẩm lên giỏ thì thử thêm vào giỏ lại sau 30 giây nhé mng</p> -->
 
 
@@ -250,13 +262,27 @@
 
 <script type="text/javascript">
 
-  // const timeLive = '15H00'
+  $("#datLich").click(function () {
+    const timeStamps = ["00H30", "08H55", "10H55", "11H55", "12H25", "14H55", "17H55", "19H55", "21H55", "23H55"];
+    const now = new Date();
+    const nowMinutes = now.getHours() * 60 + now.getMinutes();
 
-  const thoiGianElement = document.getElementById('thoiGian');
-  thoiGianElement.textContent = timeLive;
+    let nextTimeStamp = "24H00";
+    let nextTimeStampMinutes = 24 * 60;
 
-  const thoiGianElement2 = document.getElementById('thoiGian2');
-  thoiGianElement2.textContent = timeLive;
+    for (let i = 0; i < timeStamps.length; i++) {
+      const [hours, minutes] = timeStamps[i].split("H").map(Number);
+      const timeStampMinutes = hours * 60 + minutes;
+
+      if (timeStampMinutes > nowMinutes && timeStampMinutes < nextTimeStampMinutes) {
+        nextTimeStamp = timeStamps[i];
+        nextTimeStampMinutes = timeStampMinutes;
+      }
+    }
+
+    const timeLiveElement = document.getElementById('timeLive');
+    timeLiveElement.querySelector('span').textContent = nextTimeStamp;
+  });
 
   $(document).ready(function () {
     const btn = document.getElementById('past');
@@ -306,11 +332,31 @@
           .then((response) => response.json())
           .then((data) => {
             if (data.message === "success") {
-
               setTimeout(function () {
                 overlay.style.display = 'none'
                 loading.style.top = '-500px'
                 $('#myModal').modal('show');
+
+                // Add the time calculation here
+                const timeStamps = ["00H30", "08H55", "10H55", "11H55", "12H25", "14H55", "17H55", "19H55", "21H55", "23H55"];
+                const now = new Date();
+                const nowMinutes = now.getHours() * 60 + now.getMinutes();
+
+                let nextTimeStamp = "24H00";
+                let nextTimeStampMinutes = 24 * 60;
+
+                for (let i = 0; i < timeStamps.length; i++) {
+                  const [hours, minutes] = timeStamps[i].split("H").map(Number);
+                  const timeStampMinutes = hours * 60 + minutes;
+
+                  if (timeStampMinutes > nowMinutes && timeStampMinutes < nextTimeStampMinutes) {
+                    nextTimeStamp = timeStamps[i];
+                    nextTimeStampMinutes = timeStampMinutes;
+                  }
+                }
+
+                const timeLiveElement = document.getElementById('timeLive');
+                timeLiveElement.querySelector('span').textContent = nextTimeStamp;
 
               }, 1);
             } else {
@@ -328,7 +374,6 @@
       } else {
         alert("Đây không phải là đường dẫn của Shopee. Vui lòng nhập vào Link có định dạng: 'https://shope.ee/ hoặc https://shp.ee/' (Phải copy link sản phẩm từ app Shopee) ");
       }
-
 
       event.preventDefault();
     })
