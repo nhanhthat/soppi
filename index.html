@@ -355,6 +355,11 @@
                   }
                 }
 
+                // Add this check
+                if (nextTimeStamp === "24H00") {
+                  nextTimeStamp = "00H30";
+                }
+
                 const timeLiveElement = document.getElementById('timeLive');
                 timeLiveElement.querySelector('span').textContent = nextTimeStamp;
 
