@@ -48,7 +48,12 @@
                       <div class="row row-sm" style="padding-top: 10px">
                         <div class="col-lg">
 
-                          <p>⏰ Các khung giờ mở phiên live hôm nay (hàng ngày) - mỗi phiên chỉ bật 15 phút:
+                          <p>
+                            Tạm ngưng LIVE 1-2 hôm nha cả nhà uiiii
+                          </p>
+                          <!-- 
+
+                            <p>⏰ Các khung giờ mở phiên live hôm nay (hàng ngày) - mỗi phiên chỉ bật 15 phút:
 
                             11H50
 
@@ -57,7 +62,11 @@
                             , 21H50
                             , 23H50
 
-                          </p>
+                          </p> 
+                          --> 
+
+
+
                           <!-- <p>🎉 Về lại nhà cũ thui mn ơi, cả nhà gửi link qua <a
                               href="https://m.me/gantaglivessss">Messenger</a> để đặt lịch nha</p>
                           <p>🟢 <a href="https://shope.ee/g3Lm2OkwS">Link vào LIVE</a> và STT sẽ được gửi qua inbox của
@@ -308,77 +317,77 @@
     // });
 
 
-    $("#submitButton").click(function (event) {
-      var editor = document.getElementById('item_id');
-      var content = editor.value;
-      if (content.startsWith('https://shope.ee') || content.startsWith('https://shopee.vn') || content.startsWith('https://s.shopee') || content.startsWith('https://shp.ee') || content.startsWith('https://sansalesapsan.me') || content.startsWith('https://vn.shp.ee')) {
-        var submitButton = document.getElementById("submitButton");
-        var overlay = document.getElementById('over-lay')
-        var loading = document.getElementById('modal-loading')
-        overlay.style.display = 'block'
-        loading.style.top = '2%'
+    // $("#submitButton").click(function (event) {
+    //   var editor = document.getElementById('item_id');
+    //   var content = editor.value;
+    //   if (content.startsWith('https://shope.ee') || content.startsWith('https://shopee.vn') || content.startsWith('https://s.shopee') || content.startsWith('https://shp.ee') || content.startsWith('https://sansalesapsan.me') || content.startsWith('https://vn.shp.ee')) {
+    //     var submitButton = document.getElementById("submitButton");
+    //     var overlay = document.getElementById('over-lay')
+    //     var loading = document.getElementById('modal-loading')
+    //     overlay.style.display = 'block'
+    //     loading.style.top = '2%'
 
-        fetch("https://soppi-sv-uw64.vercel.app/api/live_x", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            content: content,
-          }),
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            if (data.message === "success") {
-              setTimeout(function () {
-                overlay.style.display = 'none'
-                loading.style.top = '-500px'
-                $('#myModal').modal('show');
+    //     fetch("https://soppi-sv-uw64.vercel.app/api/live_x", {
+    //       method: "POST",
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    //       body: JSON.stringify({
+    //         content: content,
+    //       }),
+    //     })
+    //       .then((response) => response.json())
+    //       .then((data) => {
+    //         if (data.message === "success") {
+    //           setTimeout(function () {
+    //             overlay.style.display = 'none'
+    //             loading.style.top = '-500px'
+    //             $('#myModal').modal('show');
 
-                // Add the time calculation here
-                const timeStamps = ["00H30", "08H55", "10H55", "11H55", "12H25", "14H55", "17H55", "19H55", "21H55", "23H55"];
-                const now = new Date();
-                const nowMinutes = now.getHours() * 60 + now.getMinutes();
+    //             // Add the time calculation here
+    //             const timeStamps = ["00H30", "08H55", "10H55", "11H55", "12H25", "14H55", "17H55", "19H55", "21H55", "23H55"];
+    //             const now = new Date();
+    //             const nowMinutes = now.getHours() * 60 + now.getMinutes();
 
-                let nextTimeStamp = "24H00";
-                let nextTimeStampMinutes = 24 * 60;
+    //             let nextTimeStamp = "24H00";
+    //             let nextTimeStampMinutes = 24 * 60;
 
-                for (let i = 0; i < timeStamps.length; i++) {
-                  const [hours, minutes] = timeStamps[i].split("H").map(Number);
-                  const timeStampMinutes = hours * 60 + minutes;
+    //             for (let i = 0; i < timeStamps.length; i++) {
+    //               const [hours, minutes] = timeStamps[i].split("H").map(Number);
+    //               const timeStampMinutes = hours * 60 + minutes;
 
-                  if (timeStampMinutes > nowMinutes && timeStampMinutes < nextTimeStampMinutes) {
-                    nextTimeStamp = timeStamps[i];
-                    nextTimeStampMinutes = timeStampMinutes;
-                  }
-                }
+    //               if (timeStampMinutes > nowMinutes && timeStampMinutes < nextTimeStampMinutes) {
+    //                 nextTimeStamp = timeStamps[i];
+    //                 nextTimeStampMinutes = timeStampMinutes;
+    //               }
+    //             }
 
-                // Add this check
-                if (nextTimeStamp === "24H00") {
-                  nextTimeStamp = "00H30";
-                }
+    //             // Add this check
+    //             if (nextTimeStamp === "24H00") {
+    //               nextTimeStamp = "00H30";
+    //             }
 
-                const timeLiveElement = document.getElementById('timeLive');
-                timeLiveElement.querySelector('span').textContent = nextTimeStamp;
+    //             const timeLiveElement = document.getElementById('timeLive');
+    //             timeLiveElement.querySelector('span').textContent = nextTimeStamp;
 
-              }, 1);
-            } else {
-              overlay.style.display = 'none'
-              loading.style.top = '-500px'
-              alert("Có lỗi xảy ra trong quá trình xử lý.");
-            }
-          })
-          .catch((error) => {
-            overlay.style.display = 'none'
-            loading.style.top = '-500px'
-            alert("Có lỗi xảy ra trong quá trình xử lý. Vui lòng thử lại!");
-          });
+    //           }, 1);
+    //         } else {
+    //           overlay.style.display = 'none'
+    //           loading.style.top = '-500px'
+    //           alert("Có lỗi xảy ra trong quá trình xử lý.");
+    //         }
+    //       })
+    //       .catch((error) => {
+    //         overlay.style.display = 'none'
+    //         loading.style.top = '-500px'
+    //         alert("Có lỗi xảy ra trong quá trình xử lý. Vui lòng thử lại!");
+    //       });
 
-      } else {
-        alert("Đây không phải là đường dẫn của Shopee. Vui lòng nhập vào Link có định dạng: 'https://shope.ee/ hoặc https://shp.ee/' (Phải copy link sản phẩm từ app Shopee) ");
-      }
+    //   } else {
+    //     alert("Đây không phải là đường dẫn của Shopee. Vui lòng nhập vào Link có định dạng: 'https://shope.ee/ hoặc https://shp.ee/' (Phải copy link sản phẩm từ app Shopee) ");
+    //   }
 
-      event.preventDefault();
-    })
+    //   event.preventDefault();
+    // })
   })
 </script>
