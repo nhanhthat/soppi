@@ -55,7 +55,7 @@
 
                             <p>⏰ Các khung giờ mở phiên live hôm nay (hàng ngày) - mỗi phiên chỉ bật 15 phút:
 
-                              0H30, 1H30, 8H50, 10H50, 11H50, 17H50, 21H50, 22H50, 23H50
+                              8H50, 10H50, 11H50, 17H50, 21H50, 22H50, 23H50, 0H30, 1H00
                             
 
                           </p> 
@@ -265,38 +265,7 @@
 
 <script type="text/javascript">
 
-$("#datLich").click(function () {
-  const timeStamps = ["0H30", "1H00", "8H50", "10H50","11H50", "17H50", "21H50", "22H50", "23H50"];
-  const now = new Date();
-  let nowMinutes = now.getHours() * 60 + now.getMinutes();
 
-  // Convert all timestamps to minutes
-  let timeStampsInMinutes = timeStamps.map(timeStamp => {
-    let [hours, minutes] = timeStamp.split("H").map(Number);
-    // Add 24 hours to timestamps after midnight
-    if (hours < 2) {
-      hours += 24;
-    }
-    return hours * 60 + minutes;
-  });
-
-  // If the current time is after midnight, add 24 hours to it
-  if (now.getHours() < 2) {
-    nowMinutes += 24 * 60;
-  }
-
-  // Find the next timestamp
-  let nextTimeStampIndex = timeStampsInMinutes.findIndex(timeStamp => timeStamp > nowMinutes);
-
-  // If there is no next timestamp, the next timestamp is the first timestamp of the next day
-  if (nextTimeStampIndex === -1) {
-    nextTimeStampIndex = 0;
-  }
-
-  const timeLiveElement = document.getElementById('timeLive');
-  // Set the next live session time
-  timeLiveElement.textContent = timeStamps[nextTimeStampIndex];
-});
 
   $(document).ready(function () {
     const btn = document.getElementById('past');
@@ -352,7 +321,7 @@ $("#datLich").click(function () {
                 $('#myModal').modal('show');
 
                 // Add the time calculation here
-                const timeStamps = [ "11H50", "17H50", "21H50", "23H50"];
+                const timeStamps = [ "0H30", "1H30", "8H50", "10H50", "11H50", "17H50", "21H50", "22H50", "23H50"];
                 const now = new Date();
                 const nowMinutes = now.getHours() * 60 + now.getMinutes();
 
