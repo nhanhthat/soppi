@@ -48,17 +48,21 @@
                       <div class="row row-sm" style="padding-top: 10px">
                         <div class="col-lg">
 
-                          <p>
+                          <!-- <p>
                             Tạm ngưng LIVE 1-2 hôm nha cả nhà uiiii, Shopee lại khoá acc em roy 😭😭😭
-                          </p>
+                          </p> -->
                           
 
-                            <!-- <p>⏰ Các khung giờ mở phiên live hôm nay (hàng ngày) - mỗi phiên chỉ bật 15 phút:
+                            <p>⏰ Các khung giờ mở phiên live hôm nay (Update liên tục theo ngày) 
 
-                              0H30, 8H50, 10H50, 11H50, 17H50, 19H50, 21H50, 23H50
-                            
-
-                          </p>  -->
+                              <table>
+                                <ul>
+                                  <!-- <li>11H00 -> 13H00</li> -->
+                                  <li>20H00 -> 0H00</li>
+                                </ul>
+                              </table>
+                              
+                          </p> 
                           
 
 
@@ -73,8 +77,8 @@
                               href="https://www.facebook.com/gantaglivessss/"> Gắn Tag Live -
                               Săn Sale Sập Sàn</a> </p> -->
 
-                          <p>👉 Link vào LIVE: <a href="https://shope.ee/8AA0u1Bqpt" target="_blank"><span
-                                style="color: blue; font-weight: bold;">https://shope.ee/8AA0u1Bqpt</span></a></p>
+                          <p>👉 Link vào LIVE: <a href="https://sansalesapsan.me/tO23" target="_blank"><span
+                                style="color: blue; font-weight: bold;">https://s.shopee.vn/AUY7kyvKeG</span></a></p>
 
                           <!-- <p>⭐ Cả nhà đặt lịch xong chờ đến giờ, vào LIVE tìm sản phẩm bằng kính lúp trong giỏ
                             nhoé</p> -->
@@ -112,9 +116,9 @@
                       </div>
 
                       <div class="row row-sm">
-                        <!-- <button id="submitButton" class="btn btn-primary"
+                        <button id="submitButton" class="btn btn-primary"
                           style="width: auto; margin-left: auto; margin-right: auto; margin-bottom: 3%;">Thêm vào phiên
-                          LIVE tiếp theo</button> -->
+                          LIVE tiếp theo</button>
 
                         <!-- <button id="submitButtonVideo" class="btn btn-primary"
                           style="width: auto; margin-left: auto; margin-right: auto; margin-bottom: 3%;">Thêm vào
@@ -225,8 +229,10 @@
 
                 <span></span>
               </p>
-              <p>👉 Link LIVE: <a href="https://shope.ee/8AA0u1Bqpt" target="_blank"><span
-                    style="color: blue; font-weight: bold;">https://shope.ee/8AA0u1Bqpt</span></a></p>
+              <p>👉 Link vào LIVE: <a href="https://sansalesapsan.me/tO23" target="_blank"><span
+                    style="color: blue; font-weight: bold;">https://s.shopee.vn/AUY7kyvKeG</span></a></p>
+                    
+              <p>🟡 Cả nhà chủ động canh đúng giờ vào LIVE lấy sản phẩm nha </p>
               <!-- <p>⚠️ Không thấy sản phẩm lên giỏ thì thử thêm vào giỏ lại sau 30 giây nhé mng</p> -->
 
 
@@ -321,7 +327,7 @@
                 $('#myModal').modal('show');
 
                 // Add the time calculation here
-                const timeStamps = [ "0H30", "8H50", "10H50", "11H50", "17H50", "19H50", "21H50", "23H50"];
+                const timeStamps = [ "20H00"];
                 const now = new Date();
                 const nowMinutes = now.getHours() * 60 + now.getMinutes();
 
@@ -338,10 +344,7 @@
                   }
                 }
 
-                // Add this check
-                if (nextTimeStamp === "24H00") {
-                  nextTimeStamp = "00H30";
-                }
+                
 
                 const timeLiveElement = document.getElementById('timeLive');
                 timeLiveElement.querySelector('span').textContent = nextTimeStamp;
