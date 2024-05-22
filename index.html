@@ -300,7 +300,6 @@
                 loading.style.top = '-500px'
                 $('#myModal').modal('show');
 
-                const timeStamps = ["11H00", "20H00"];
                 const liveTimeSlots = [
                   { start: "11H00", end: "13H00" },
                   { start: "21H00", end: "23H40" },
@@ -310,6 +309,7 @@
                 const nowMinutes = now.getHours() * 60 + now.getMinutes();
 
                 let inLiveTimeSlot = false;
+                let nextLiveTimeSlot = null;
                 for (let i = 0; i < liveTimeSlots.length; i++) {
                   const [startHours, startMinutes] = liveTimeSlots[i].start.split("H").map(Number);
                   const [endHours, endMinutes] = liveTimeSlots[i].end.split("H").map(Number);
@@ -320,23 +320,19 @@
                     inLiveTimeSlot = true;
                     break;
                   }
+
+                  if (nowMinutes < startMinutesFromMidnight && (nextLiveTimeSlot === null || startMinutesFromMidnight < nextLiveTimeSlot)) {
+                    nextLiveTimeSlot = startMinutesFromMidnight;
+                  }
                 }
 
                 const timeLiveElement = document.getElementById('timeLive');
                 if (inLiveTimeSlot) {
-                  timeLiveElement.innerHTML = "✅ Sản phẩm sẽ ở trong giỏ LIVE phiên hiện tại sau 2-5 phút.";
+                  timeLiveElement.innerHTML = "✅ Đặt lịch gắn tag live thành công vào phiên LIVE hiện tại lúc (Lấy sản phẩm ở cuối giỏ LIVE sau 2-5')";
                 } else {
-                  let nextTimeStamp = "11H00";
-                  let nextTimeStampMinutes = 24 * 60;
-                  for (let i = 0; i < timeStamps.length; i++) {
-                    const [hours, minutes] = timeStamps[i].split("H").map(Number);
-                    const timeStampMinutes = hours * 60 + minutes;
-                    if (nowMinutes < timeStampMinutes && timeStampMinutes < nextTimeStampMinutes) {
-                      nextTimeStamp = timeStamps[i];
-                      nextTimeStampMinutes = timeStampMinutes;
-                    }
-                  }
-                  timeLiveElement.querySelector('span').textContent = nextTimeStamp;
+                  const nextLiveHours = Math.floor(nextLiveTimeSlot / 60);
+                  const nextLiveMinutes = nextLiveTimeSlot % 60;
+                  timeLiveElement.querySelector('span').textContent = `${nextLiveHours}H${nextLiveMinutes < 10 ? '0' : ''}${nextLiveMinutes}`;
                 }
 
               }, 2000);
